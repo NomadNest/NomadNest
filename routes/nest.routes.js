@@ -6,10 +6,24 @@ const Nest = require('../models/Nest.model');
 
 // READ: display all nests
 
-router.get("/", (req, res, next)=>{
-    res.send("Hi Emilio, lets see if it is working :)")
-    console.log("Hello")
-})
+router.get("/nests", (req, res, next) => {
+
+    Nest.find()
+        .then(nestsFromDB => {
+
+            const data = {
+                nests: nestsFromDB
+            }
+            res.render("nests/nests-list", data);
+        })
+        .catch(e => {
+            console.log("error getting all Nests from DB", e);
+            next(e);
+        })
+});
+
+
+
 
 
 

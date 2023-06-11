@@ -1,0 +1,17 @@
+<h1>This is a list of all nests</h1>
+
+{{#each nests}}
+<section>
+    {{!-- INSERT INFO OF picture --}}
+    <h4>{{this.title}}</h4>
+    <p>
+        {{this.location}}
+        {{this.price}}
+    </p>
+
+    {{!-- <a href="/books/{{this._id}}">More details</a> --}}
+
+
+</section>
+{{/each}}
+
