@@ -53,6 +53,38 @@ router.post("/create", (req,res,next) => {
 })
 
 
+//Update: display form
+router.get("/:nestId/edit", (req, res, next) => {
+  const { nestId } = req.params;
+
+  Nest.findById(nestId)
+    .then((nestId) => {
+      res.render("nests/nest-update.hbs", { nest: nestId });
+    })
+
+    .catch((error) => next(error));
+});
+
+
+// update: Process form
+router.post("/:nestId/edit", (req, res, next) => {
+  const { nestId } = req.params;
+  const { title, location, price, description } = req.body;
+  Nest.findByIdAndUpdate(
+    nestId,
+    { title, location, price, description },
+    { new: true }
+  )
+    .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))
+    .catch((error) => next(error));
+});
+
+
+
+
+
+
+
 // READ: display details of one Nest
 router.get("/:nestId", (req,res,next) => {
 

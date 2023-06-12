@@ -3,18 +3,19 @@
 <form method="POST" action="/nests/create">
 
     <label> Title:
-        <input type="text" name="title" />
+        <input type="text" name="title" required="true" />
     </label>
 
     <label> Location:
-        <input type="text" name="location" />
+        <input type="text" name="location" required="true" />
     </label>
 
     <label> Price:
-        <input type="number" name="price" />
+        <input type="number" name="price" required="true" />
     </label>
 
     <label> Description:
+        {{!-- <input type="text" required="true"/> --}}
         <textarea name="description" cols="30" rows="4"> </textarea>
     </label>
 

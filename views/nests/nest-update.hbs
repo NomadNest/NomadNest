@@ -1,0 +1,35 @@
+
+<h2>Edit the Nest: {{nest.title}}</h2>
+<br>
+<form method="POST" action="/nests/{{nest._id}}/edit">
+
+    <label> Title:
+        <input type="text" name="title" value="{{nest.title}}" required="true" />
+    </label>
+
+    {{!-- <label> Author:
+        <select name="author">
+            {{#each authors}}
+                <option value={{this._id}}>
+                    {{this.name}}
+                </option>
+            {{/each}}
+        </select>
+    </label> --}}
+
+      <label> Location:
+        <input type="text" name="location" required="true"/>
+    </label>
+
+      <label> Price:
+        <input type="number" name="price" required="true"/>
+    </label>
+  
+    <label> Description:
+        <textarea name="description" cols="30" rows="4" required="true">{{nest.description}} </textarea>
+    </label>
+
+   
+
+    <button  >Save changes</button>
+</form>
