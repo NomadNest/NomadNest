@@ -27,8 +27,6 @@ router.get("/", (req, res, next) => {
 });
 
 
-
-
 // CREATE: display form
 
 router.get("/create", isLoggedIn, (req,res,next) => {

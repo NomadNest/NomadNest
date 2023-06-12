@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>{{appTitle}}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
@@ -13,10 +14,14 @@
     <a href="/">Home</a>
     <a href="/nests/">Nests</a>
     <a href="/nests/create">Create Nests</a>
+
+
+    {{!-- // CREATE if statement to check if user session is ion/off --}}
+    
     <a href="/auth/signup">Signup</a>
     <a href="/auth/login">Login</a>
 
-   <form id="logout-form" method="POST" action="/logout">
+   <form id="logout-form" method="GET" action="/auth/logout">
       <button>Logout</button>
    </form>
 
