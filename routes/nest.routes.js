@@ -3,6 +3,10 @@ const router = express.Router();
 
 const Nest = require('../models/Nest.model');
 
+const isLoggedIn = require('../middleware/isLoggedIn');
+const isLoggedOut = require('../middleware/isLoggedOut');
+
+
 
 // READ: display all nests
 
@@ -27,13 +31,13 @@ router.get("/", (req, res, next) => {
 
 // CREATE: display form
 
-router.get("/create", (req,res,next) => {
+router.get("/create", isLoggedIn, (req,res,next) => {
     res.render("nests/nest-create")
 })
 
 // CREATE: process form
 
-router.post("/create", (req,res,next) => {
+router.post("/create", isLoggedIn, (req,res,next) => {
 
     const newNest = {
         title: req.body.title,
@@ -53,8 +57,8 @@ router.post("/create", (req,res,next) => {
 })
 
 
-//Update: display form
-router.get("/:nestId/edit", (req, res, next) => {
+//UPDATE: display form
+router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
   const { nestId } = req.params;
 
   Nest.findById(nestId)
@@ -66,8 +70,8 @@ router.get("/:nestId/edit", (req, res, next) => {
 });
 
 
-// update: Process form
-router.post("/:nestId/edit", (req, res, next) => {
+// UPDATE: Process form
+router.post("/:nestId/edit", isLoggedIn, (req, res, next) => {
   const { nestId } = req.params;
   const { title, location, price, description } = req.body;
   Nest.findByIdAndUpdate(
@@ -82,7 +86,7 @@ router.post("/:nestId/edit", (req, res, next) => {
 
 // DELETE: Remove Nest from Database
 
-router.post('/:nestId/delete', (req, res, next) => {
+router.post('/:nestId/delete', isLoggedIn, (req, res, next) => {
     const { nestId } = req.params;
     Nest.findByIdAndDelete(nestId)
         .then(() => res.redirect('/nests'))
@@ -104,7 +108,6 @@ router.get("/:nestId", (req,res,next) => {
         next(e);
     });
     })
-
 
 
 
