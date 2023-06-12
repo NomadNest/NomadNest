@@ -80,9 +80,14 @@ router.post("/:nestId/edit", (req, res, next) => {
 });
 
 
+// DELETE: Remove Nest from Database
 
-
-
+router.post('/:nestId/delete', (req, res, next) => {
+    const { nestId } = req.params;
+    Nest.findByIdAndDelete(nestId)
+        .then(() => res.redirect('/nests'))
+        .catch(error => next(error));
+})
 
 
 // READ: display details of one Nest

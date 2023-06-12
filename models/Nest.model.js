@@ -9,6 +9,7 @@ const nestSchema = new Schema(
     description: String,
     // enum: number of dorms, desks, daylight, pet friendly, timezone....
     // rating: Number
+    
   },
   {
     timestamps: true

@@ -6,9 +6,12 @@
 <p>Description: {{description}}</p>
 
 <button>
-<a href="/nests">Go back to all nests</a>
+    <a href="/nests">Go back to all nests</a>
 </button>
 <button>
- <a href="/nests/{{this._id}}/edit">edit</a>
+    <a href="/nests/{{this._id}}/edit">edit</a>
 </button>
-   
+
+<form method="POST" action="/nests/{{_id}}/delete">
+    <button>Delete</button>
+</form>
