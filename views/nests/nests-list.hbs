@@ -1,21 +1,36 @@
-<h1>This is a list of all nests</h1>
+<h2>Find your perfect Nest</h2> <br>
 
-{{#each nests}}
-<section>
-    {{!-- INSERT INFO OF picture --}}
-    <h4>{{this.title}}</h4>
-    <p>
-        {{this.location}}
-        {{this.price}}
-    </p>
+<div class="row">
+  {{#each nests}}
 
-    <a href="/nests/{{this._id}}">More details</a>
-    <a href="/nests/{{this._id}}/edit">edit</a>
+  <div class="col-md-3 mb-6">
+    <div class="card" style="width: 17.5rem;">
+      <img src="{{imageUrl}}" class="card-img-top" alt="{{title}}">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{location}}</p>
+        <p class="card-text">{{price}}</p>
 
-    <form method="POST" action="/nests/{{_id}}/delete">
-        <button>Delete</button>
-    </form>
+        <button>
+          <a href="/nests/{{this._id}}">More details</a>
+        </button>
 
-</section>
-{{/each}}
+        <button>
+          <a href="/nests/{{this._id}}/edit">edit</a>
+        </button>
 
+        <form method="POST" action="/nests/{{_id}}/delete">
+          <button>Delete</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  {{else}}
+  <p>There are no movies yet!</p>
+
+  {{/each}}
+  <hr />
+</div>

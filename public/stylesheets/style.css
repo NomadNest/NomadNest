@@ -10,3 +10,8 @@ a {
 h1 {
   color: 15px;
 }
+
+.card-img-top {
+  object-fit: cover;
+  height: 45vh;
+}

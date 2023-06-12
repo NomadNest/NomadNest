@@ -10,20 +10,21 @@
 </head>
 
 <body>
+
   <nav>
     <a href="/">Home</a>
     <a href="/nests/">Nests</a>
     <a href="/nests/create">Create Nests</a>
 
 
-    {{!-- // CREATE if statement to check if user session is ion/off --}}
-    
+    {{!-- Check if the user is logged out --}}
     <a href="/auth/signup">Signup</a>
     <a href="/auth/login">Login</a>
 
-   <form id="logout-form" method="GET" action="/auth/logout">
+    {{!-- Check if the user is logged in --}}
+    <form id="logout-form" method="GET" action="/auth/logout">
       <button>Logout</button>
-   </form>
+    </form>
 
   </nav>
 

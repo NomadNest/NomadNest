@@ -3,8 +3,10 @@ const router = express.Router();
 
 const Nest = require('../models/Nest.model');
 
+const fileUploader = require('../config/cloudinary.config');
+
 const isLoggedIn = require('../middleware/isLoggedIn');
-const isLoggedOut = require('../middleware/isLoggedOut');
+// const isLoggedOut = require('../middleware/isLoggedOut');
 
 
 
@@ -35,13 +37,14 @@ router.get("/create", isLoggedIn, (req,res,next) => {
 
 // CREATE: process form
 
-router.post("/create", isLoggedIn, (req,res,next) => {
+router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (req,res,next) => {
 
     const newNest = {
         title: req.body.title,
         location: req.body.location,
         price: req.body.price,
-        description: req.body.description
+        description: req.body.description,
+        imageUrl: req.file.path    
     }
 
     Nest.create(newNest)
@@ -69,12 +72,20 @@ router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
 
 
 // UPDATE: Process form
-router.post("/:nestId/edit", isLoggedIn, (req, res, next) => {
+router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'), (req, res, next) => {
   const { nestId } = req.params;
-  const { title, location, price, description } = req.body;
+  const { title, location, price, description, existingImage } = req.body;
+
+  let imageUrl;
+  if (req.file) {
+    imageUrl = req.file.path;
+  } else {
+    imageUrl = existingImage;
+  }
+
   Nest.findByIdAndUpdate(
     nestId,
-    { title, location, price, description },
+    { title, location, price, description, imageUrl },
     { new: true }
   )
     .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))
@@ -90,6 +101,7 @@ router.post('/:nestId/delete', isLoggedIn, (req, res, next) => {
         .then(() => res.redirect('/nests'))
         .catch(error => next(error));
 })
+
 
 
 // READ: display details of one Nest

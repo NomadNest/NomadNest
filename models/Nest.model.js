@@ -3,7 +3,7 @@ const { mongoose, Schema, model } = require('mongoose');
 const nestSchema = new Schema(
   {
     title: String,
-    picture: String,
+    imageUrl: String,
     location: String,
     price: Number,
     description: String,
