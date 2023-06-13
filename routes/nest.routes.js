@@ -48,7 +48,11 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
         price: req.body.price,
         description: req.body.description,
         imageUrl: req.file.path,
-        owner: req.session.currentUser._id
+        owner: req.session.currentUser._id,
+        // address: {
+        //     type: 'Point',
+        //     coordinates: [longitude, latitude]
+        //   }
     }
 
     Nest.create(newNest)
@@ -129,10 +133,41 @@ router.get("/:nestId", (req, res, next) => {
             }
         })
         .catch(e => {
-            console.log("error getting book details from DB", e);
+            console.log("error getting nest details from DB", e);
             next(e);
         });
 })
+
+
+// GOOGLE
+
+// const geocoder = new google.maps.Geocoder();
+
+// document.getElementById('submit').addEventListener('click', () => {
+//   geocodeAddress(geocoder, map);
+// });
+
+// function geocodeAddress(geocoder, resultsMap) {
+//   const address = document.getElementById('address').value;
+
+//   geocoder.geocode({ address: address }, (results, status) => {
+//     if (status === 'OK') {
+//       resultsMap.setCenter(results[0].geometry.location);
+//       let marker = new google.maps.Marker({
+//         map: resultsMap,
+//         position: results[0].geometry.location
+//       });
+//       document.getElementById('latitude').value = results[0].geometry.location.lat();
+//       document.getElementById('longitude').value = results[0].geometry.location.lng();
+//     } else {
+//       console.log(`Geocode was not successful for the following reason: ${status}`);
+//     }
+//   });
+// }
+
+
+
+
 
 
 

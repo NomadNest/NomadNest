@@ -12,7 +12,8 @@ const nestSchema = new Schema(
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
-    }
+    },
+    address: { type: { type: String }, coordinates: [Number] },
   },
   {
     timestamps: true

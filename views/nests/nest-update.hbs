@@ -1,39 +1,49 @@
-
 <div class="nest-style">
-  <h4 class="nest-list-headline">Edit your Nest <br>"{{nest.title}}"</h4>
+    <h4 class="nest-list-headline">Edit your Nest <br>"{{nest.title}}"</h4>
 
-<form method="POST" action="/nests/{{nest._id}}/edit" enctype="multipart/form-data">
+    <form method="POST" action="/nests/{{nest._id}}/edit" enctype="multipart/form-data">
 
-    <label> Title<br>
-        <input type="text" name="title" value="{{nest.title}}" required="true" />
-    </label>
-<br>
-    {{!-- <label> Author:
-        <select name="author">
-            {{#each authors}}
-            <option value={{this._id}}>
-                {{this.name}}
-            </option>
-            {{/each}}
-        </select>
-    </label> --}}
+        <label> Title<br>
+            <input type="text" name="title" value="{{nest.title}}" required="true" />
+        </label>
+        <br>
 
-    <label> Location<br>
-        <input type="text" name="location" required="true" value="{{nest.location}}" />
-    </label>
-<br>
-    <label> Price<br>
-        <input type="number" name="price" required="true" value="{{nest.price}}" />
-    </label>
-<br>
-    <label> Description<br>
-        <textarea name="description" cols="30" rows="4" required="true" >{{nest.description}} </textarea>
-    </label>
-<br>
-    <label>Image<br>
-        <input type="file" name="movie-cover-image" class="form-control-file" />
-        <input type="text" name="existingImage"  value="{{imageUrl}}">
-    </label>
-<br>
-    <button class="btn btn-light">Save</button>
-</form>
+        {{!-- <label> Author
+            <select name="author">
+                {{#each authors}}
+                <option value={{this._id}}>
+                    {{this.name}}
+                </option>
+                {{/each}}
+            </select>
+        </label> --}}
+
+        <label> Location<br>
+            <input type="text" name="location" required="true" value="{{nest.location}}" />
+        </label>
+        <br>
+        <label> Price<br>
+            <input type="number" name="price" required="true" value="{{nest.price}}" />
+        </label>
+        <br>
+
+        {{!-- <label>Address <br>
+            <input type="text" name="latitude" placeholder="latitude" required="true" class="form-control"
+                id="exampleInputPassword1">
+            <input type="text" name="longitude" placeholder="longitude" required="true" class="form-control"
+                id="exampleInputPassword1">
+        </label>
+        <br> --}}
+
+
+        <label> Description<br>
+            <textarea name="description" cols="30" rows="4" required="true">{{nest.description}} </textarea>
+        </label>
+        <br>
+        <label>Image<br>
+            <input type="file" name="movie-cover-image" class="form-control-file" />
+            <input type="text" name="existingImage" value="{{nest.imageUrl}}">
+        </label>
+        <br>
+        <button class="btn btn-light">Save</button>
+    </form>

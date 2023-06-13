@@ -6,25 +6,28 @@
 
 <img src="{{nest.imageUrl}}" class="card-img-top" alt="{{nest.title}}">
 
-<p>€{{nest.price}}/night</p>
-<p>Description <br>{{nest.description}}</p>
-
-
-
-<hr>
-<p>Location</p>
-
-
-
-{{!-- {{#if isOwner}}
-<button>
+{{#if isOwner}}
+<button type="button" class="btn btn-light">
     <a href="/nests/{{nest._id}}/edit">edit</a>
 </button>
 
 <form method="POST" action="/nests/{{nest._id}}/delete">
-    <button>Delete</button>
+    <button type="button" class="btn btn-light">delete</button>
 </form>
-{{/if}} --}}
+{{/if}}
+
+<p>€{{nest.price}}/night</p>
+<p>Description <br>{{nest.description}}</p>
+
+
+<hr>
+<p>Location</p>
+    <h3>My First Map</h3>
+    <div id="map"></div>
+
+
+
+
 
 
 <button class="btn btn-link button-list">
