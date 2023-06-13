@@ -17,14 +17,23 @@
     <a href="/nests/create">Create Nests</a>
 
 
-    {{!-- Check if the user is logged out --}}
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/login">Login</a>
-
-    {{!-- Check if the user is logged in --}}
+    {{#if currentUser}}
+    
     <form id="logout-form" method="GET" action="/auth/logout">
       <button>Logout</button>
     </form>
+
+    {{else}}
+
+    <a href="/auth/signup">Signup</a>
+    <a href="/auth/login">Login</a>
+    
+    {{/if}}
+
+    
+    
+
+  
 
   </nav>
 

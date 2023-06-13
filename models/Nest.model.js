@@ -9,7 +9,10 @@ const nestSchema = new Schema(
     description: String,
     // enum: number of dorms, desks, daylight, pet friendly, timezone....
     // rating: Number
-    
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
   },
   {
     timestamps: true

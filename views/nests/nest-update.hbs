@@ -17,20 +17,20 @@
     </label> --}}
 
     <label> Location:
-        <input type="text" name="location" required="true" />
+        <input type="text" name="location" required="true" value="{{nest.location}}" />
     </label>
 
     <label> Price:
-        <input type="number" name="price" required="true" />
+        <input type="number" name="price" required="true" value="{{nest.price}}" />
     </label>
 
     <label> Description:
-        <textarea name="description" cols="30" rows="4" required="true">{{nest.description}} </textarea>
+        <textarea name="description" cols="30" rows="4" required="true" >{{nest.description}} </textarea>
     </label>
 
     <label>Image:
         <input type="file" name="movie-cover-image" class="form-control-file" />
-        <input type="text" name="existingImage" hidden value="{{imageUrl}}">
+        <input type="text" name="existingImage"  value="{{imageUrl}}">
     </label>
 
     <button>Save changes</button>

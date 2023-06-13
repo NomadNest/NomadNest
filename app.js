@@ -23,6 +23,16 @@ const projectName = "NomadNest";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+
+// here we are connecting current user to the userwho created the nest
+app.use((req, res, next)=>{
+    
+    app.locals.currentUser = req.session.currentUser
+    console.log(app.locals)
+    next()
+})
+
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);

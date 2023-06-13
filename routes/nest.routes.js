@@ -32,19 +32,23 @@ router.get("/", (req, res, next) => {
 // CREATE: display form
 
 router.get("/create", isLoggedIn, (req,res,next) => {
+    
+    console.log('USER FROM /create', req.session.currentUser._id)
     res.render("nests/nest-create")
+
 })
 
 // CREATE: process form
 
 router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (req,res,next) => {
-
+ 
     const newNest = {
         title: req.body.title,
         location: req.body.location,
         price: req.body.price,
         description: req.body.description,
-        imageUrl: req.file.path    
+        imageUrl: req.file.path,
+        owner:req.session.currentUser._id  
     }
 
     Nest.create(newNest)
@@ -61,14 +65,17 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
 //UPDATE: display form
 router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
   const { nestId } = req.params;
-
+  
   Nest.findById(nestId)
-    .then((nestId) => {
-      res.render("nests/nest-update.hbs", { nest: nestId });
+    .then((nestFromDB) => {
+        
+            res.render("nests/nest-update.hbs", { nest: nestFromDB})
+           
     })
 
     .catch((error) => next(error));
 });
+
 
 
 // UPDATE: Process form
@@ -78,9 +85,12 @@ router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'
 
   let imageUrl;
   if (req.file) {
+    console.log("req.file is....." + req.file)
+   
     imageUrl = req.file.path;
   } else {
     imageUrl = existingImage;
+    console.log("imgUrl is....." + imageUrl)
   }
 
   Nest.findByIdAndUpdate(
@@ -111,7 +121,12 @@ router.get("/:nestId", (req,res,next) => {
     
     Nest.findById(id)
     .then(nestFromDB => {
-        res.render("nests/nest-details", nestFromDB);
+        if(req.session.currentUser._id  == nestFromDB.owner){
+            res.render("nests/nest-details", { nest: nestFromDB, isOwner:true})
+
+        }else{
+            res.render("nests/nest-details", { nest: nestFromDB, isOwner:false})
+        }
     })
     .catch( e => {
         console.log("error getting book details from DB", e);
