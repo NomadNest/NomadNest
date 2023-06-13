@@ -1,20 +1,24 @@
+
+<div class="nest-style">
 <div id="form">
-  <h2>Sign Up</h2>
+
+<h4 class="nest-list-headline">Signup</h4>
+
   <form action="/auth/signup" method="POST">
 
-    <label> Username
+    <label> Username<br>
       <input type="text" name="username" placeholder="Your username" />
     </label>
-
-    <label> Email
+<br>
+    <label> Email<br>
       <input type="email" name="email" placeholder="Your email" />
     </label>
-
-    <label> Password
+<br>
+    <label> Password<br>
       <input type="password" name="password" placeholder="Your password" />
     </label>
-
-    <button type="submit">Sign Up</button>
+<br>
+    <button type="submit" class="btn btn-light">Sign Up</button>
 
 
     {{#if errorMessage}}
@@ -22,3 +26,8 @@
     {{/if}}
   </form>
 </div>
+
+
+
+
+

@@ -1,14 +1,22 @@
-<h3>{{nest.title}}</h3>
 
-<p>Location: {{nest.location}}</p>
+<div class="nest-style">
+  <h4 class="nest-list-headline">{{nest.title}}</h4>
+
+<p>{{nest.location}}</p>
 
 <img src="{{nest.imageUrl}}" class="card-img-top" alt="{{nest.title}}">
 
-<p>Price: {{nest.price}}</p>
-<p>Description: {{nest.description}}</p>
-{{!-- //// --}}
+<p>€{{nest.price}}/night</p>
+<p>Description <br>{{nest.description}}</p>
 
-{{#if isOwner}}
+
+
+<hr>
+<p>Location</p>
+
+
+
+{{!-- {{#if isOwner}}
 <button>
     <a href="/nests/{{nest._id}}/edit">edit</a>
 </button>
@@ -16,11 +24,11 @@
 <form method="POST" action="/nests/{{nest._id}}/delete">
     <button>Delete</button>
 </form>
-{{/if}}
+{{/if}} --}}
 
-<button>
+
+<button class="btn btn-link button-list">
     <a href="/nests">Go back to all nests</a>
 </button>
 
-
-
+</div>

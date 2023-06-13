@@ -31,8 +31,8 @@ router.get("/", (req, res, next) => {
 
 // CREATE: display form
 
-router.get("/create", isLoggedIn, (req,res,next) => {
-    
+router.get("/create", isLoggedIn, (req, res, next) => {
+
     console.log('USER FROM /create', req.session.currentUser._id)
     res.render("nests/nest-create")
 
@@ -40,66 +40,66 @@ router.get("/create", isLoggedIn, (req,res,next) => {
 
 // CREATE: process form
 
-router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (req,res,next) => {
- 
+router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (req, res, next) => {
+
     const newNest = {
         title: req.body.title,
         location: req.body.location,
         price: req.body.price,
         description: req.body.description,
         imageUrl: req.file.path,
-        owner:req.session.currentUser._id  
+        owner: req.session.currentUser._id
     }
 
     Nest.create(newNest)
-    .then( (newNest) => {
-        res.redirect("/nests")
-    })
-    .catch( e => {
-        console.log("error creating new Nest", e);
-        next(e);
-    });
+        .then((newNest) => {
+            res.redirect("/nests")
+        })
+        .catch(e => {
+            console.log("error creating new Nest", e);
+            next(e);
+        });
 })
 
 
 //UPDATE: display form
 router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
-  const { nestId } = req.params;
-  
-  Nest.findById(nestId)
-    .then((nestFromDB) => {
-        
-            res.render("nests/nest-update.hbs", { nest: nestFromDB})
-           
-    })
+    const { nestId } = req.params;
 
-    .catch((error) => next(error));
+    Nest.findById(nestId)
+        .then((nestFromDB) => {
+
+            res.render("nests/nest-update.hbs", { nest: nestFromDB })
+
+        })
+
+        .catch((error) => next(error));
 });
 
 
 
 // UPDATE: Process form
 router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'), (req, res, next) => {
-  const { nestId } = req.params;
-  const { title, location, price, description, existingImage } = req.body;
+    const { nestId } = req.params;
+    const { title, location, price, description, existingImage } = req.body;
 
-  let imageUrl;
-  if (req.file) {
-    console.log("req.file is....." + req.file)
-   
-    imageUrl = req.file.path;
-  } else {
-    imageUrl = existingImage;
-    console.log("imgUrl is....." + imageUrl)
-  }
+    let imageUrl;
+    if (req.file) {
+        console.log("req.file is....." + req.file)
 
-  Nest.findByIdAndUpdate(
-    nestId,
-    { title, location, price, description, imageUrl },
-    { new: true }
-  )
-    .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))
-    .catch((error) => next(error));
+        imageUrl = req.file.path;
+    } else {
+        imageUrl = existingImage;
+        console.log("imgUrl is....." + imageUrl)
+    }
+
+    Nest.findByIdAndUpdate(
+        nestId,
+        { title, location, price, description, imageUrl },
+        { new: true }
+    )
+        .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))
+        .catch((error) => next(error));
 });
 
 
@@ -115,24 +115,24 @@ router.post('/:nestId/delete', isLoggedIn, (req, res, next) => {
 
 
 // READ: display details of one Nest
-router.get("/:nestId", (req,res,next) => {
+router.get("/:nestId", (req, res, next) => {
 
     const id = req.params.nestId;
-    
-    Nest.findById(id)
-    .then(nestFromDB => {
-        if(req.session.currentUser._id  == nestFromDB.owner){
-            res.render("nests/nest-details", { nest: nestFromDB, isOwner:true})
 
-        }else{
-            res.render("nests/nest-details", { nest: nestFromDB, isOwner:false})
-        }
-    })
-    .catch( e => {
-        console.log("error getting book details from DB", e);
-        next(e);
-    });
-    })
+    Nest.findById(id)
+        .then(nestFromDB => {
+            if (req.session.currentUser._id == nestFromDB.owner) {
+                res.render("nests/nest-details", { nest: nestFromDB, isOwner: true })
+
+            } else {
+                res.render("nests/nest-details", { nest: nestFromDB, isOwner: false })
+            }
+        })
+        .catch(e => {
+            console.log("error getting book details from DB", e);
+            next(e);
+        });
+})
 
 
 

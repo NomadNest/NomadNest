@@ -1,30 +1,39 @@
-<h4>Create a new Nest</h4>
+<div class="nest-style">
+<h4 class="nest-list-headline">Become a host - offer a Nest! 🫶🏼</h4>
+
+<div class="nest-form-styling">
 
 <form method="POST" action="/nests/create" enctype="multipart/form-data">
 
-    <label> Title:
-        <input type="text" name="title" required="true" />
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Title</label>
+    <input type="text" name="title" required="true" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">City, Country</label>
+    <input type="text" name="location" required="true" class="form-control" id="exampleInputPassword1">
+  </div>
+
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Price per night/ EUR</label>
+    <input type="number" name="price" required="true" class="form-control" id="exampleInputPassword1">
+  </div>
+
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Picture</label>
+    <input type="file" name="movie-cover-image" class="form-control form-control-file" id="exampleInputPassword1">
+  </div>
+
+    <div class="mb-3">
+    {{!-- <input type="text" required="true" /> --}}
+    <label for="exampleInputPassword1" class="form-label"><textarea name="description" cols="30" rows="2">Description</textarea>
     </label>
+  </div>
 
-    <label> Location:
-        <input type="text" name="location" required="true" />
-    </label>
-
-    <label> Price:
-        <input type="number" name="price" required="true" />
-    </label>
-
-    <label> Picture:
-        <input type="file" name="movie-cover-image" class="form-control-file" />
-    </label>
-
-
-    <label> Description:
-        {{!-- <input type="text" required="true" /> --}}
-        <textarea name="description" cols="30" rows="4"> </textarea>
-    </label>
-
-    <button type="submit"> Create </button>
+  <button type="submit" class="btn button-overlay">Upload your Nest</button>
 
 </form>
 
+</div>
+</div>

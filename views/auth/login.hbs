@@ -1,24 +1,29 @@
+
+<div class="nest-style">
 <div id="login-form">
-  <h2>Log In</h2>
+
+<h4 class="nest-list-headline">Login</h4>
+
   <form action="/auth/login" method="POST">
 
-    <label> Username
+    <label> Username<br>
       <input type="text" name="username" placeholder="Your username" />
     </label>
-
-    <label> Email
+<br>
+    <label> Email<br>
       <input type="email" name="email" placeholder="Your email" />
     </label>
-
-    <label> Password
+<br>
+    <label> Password<br>
       <input type="password" name="password" placeholder="Your password" />
     </label>
-
-    <button type="submit">Log In</button>
+<br>
+    <button type="submit" class="btn btn-light">Login</button>
 
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+</div>
 </div>
