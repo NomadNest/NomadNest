@@ -1,45 +1,40 @@
-<div class="nest-style">
-  <h4 class="nest-list-headline">Community-picked workcation stays for you</h4>
+<h2>Find your perfect Nest</h2> <br>
 
-  <div class="row">
-    {{#each nests}}
+<div class="row">
+  {{#each nests}}
 
-    <div class="col-md-3 mb-6">
-      <div class="card" style="width: 17.5rem;">
-        <a href="/nests/{{this._id}}">
-          <img src="{{imageUrl}}" class="card-img-top" alt="{{title}}">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title card-title-styling">{{title}}</h5>
-          <p class="card-text card-location-styling">{{location}}</p>
-          <p class="card-text card-price-styling">€{{price}}/night</p>
+  <div class="col-md-3 mb-6">
+    <div class="card" style="width: 17.5rem;">
+      <img src="{{imageUrl}}" class="card-img-top" alt="{{title}}">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{location}}</p>
+        <p class="card-text">{{price}}</p>
+
+        <button>
+          <a href="/nests/{{this._id}}">More details</a>
+        </button>
+
+        {{!-- ///////// --}}
+        
+        <button>
+          <a href="/nests/{{this._id}}/edit">edit</a>
+        </button>
+
+        <form method="POST" action="/nests/{{_id}}/delete">
+          <button>Delete</button>
+        </form>
+        {{!-- ///////// --}}
 
 
-          <button type="button" class="btn btn-link button-list">
-            <a href="/nests/{{this._id}}">details</a>
-          </button>
-
-          <button type="button" class="btn btn-link button-list">
-            <a href="/nests/{{this._id}}/edit">edit</a>
-          </button>
-
-          <hr>
-
-          <form method="POST" action="/nests/{{_id}}/delete" class="button-delete">
-            <button type="button" class="btn btn-link button-list reduce-size">
-              delete
-            </button>
-          </form>
-
-        </div>
       </div>
     </div>
-
-
-    {{else}}
-    <p>There are no movies yet!</p>
-
-    {{/each}}
-
   </div>
+
+
+  {{else}}
+  <p>There are no nests yet!</p>
+
+  {{/each}}
+  <hr />
 </div>
