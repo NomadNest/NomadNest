@@ -127,14 +127,16 @@ video::-webkit-media-controls {
 
  .socials{
 
-  width: 13%;
+  width: 12%;
  }
  footer{
   margin-bottom: 2rem;
   padding-bottom: 2rem;
+  padding-left: 60px;
+  padding-right: 60px;
  }
  .payment{
-margin-left: 5rem;
-margin-right: 5rem;
+margin-left: 10%;
+margin-right: 10%;
 
  }
