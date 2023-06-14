@@ -124,18 +124,26 @@ router.get("/:nestId", (req, res, next) => {
     const id = req.params.nestId;
 
     Nest.findById(id)
-        .then(nestFromDB => {
-            if (req.session.currentUser._id == nestFromDB.owner) {
-                res.render("nests/nest-details", { nest: nestFromDB, isOwner: true })
-
-            } else {
-                res.render("nests/nest-details", { nest: nestFromDB, isOwner: false })
-            }
-        })
-        .catch(e => {
-            console.log("error getting nest details from DB", e);
-            next(e);
-        });
+    //   .then((nestFromDB) => {
+    //     if (req.session.currentUser._id == nestFromDB.owner) {
+    //       res.render("nests/nest-details", { nest: nestFromDB, isOwner: true });
+    //     } else {
+    //       res.render("nests/nest-details", {
+    //         nest: nestFromDB,
+    //         isOwner: false,
+    //       });
+    //     }
+    //   })
+      .then((nestFromDB) => {
+        const isOwner =
+          req.session.currentUser &&
+          req.session.currentUser._id == nestFromDB.owner;
+        res.render("nests/nest-details", { nest: nestFromDB, isOwner });
+      })
+      .catch((e) => {
+        console.log("error getting nest details from DB", e);
+        next(e);
+      });
 })
 
 

@@ -1,40 +1,37 @@
-
 <div class="nest-style">
-<div id="form">
+  <div id="form">
 
-<h4 class="nest-list-headline">Signup</h4>
-<h5>Welcome to NomadNest!👋</h5>
-<h6>Create a profile to</h6>
-<ul>
-  <li>Keep your favourites forever and access on other devices</li>
-  <li>Become a host and offer Nests</li>
-  <li>Be part of our NomadNest community</li>
-</ul>
+    <h4 class="nest-list-headline">Welcome to NomadNest!👋</h4>
+    <h6>Create a profile to</h6>
+    <ul>
+      <li>Keep favourites forever</li>
+      <li>Become a host and offer Nests</li>
+      <li>Be part of our community</li>
+    </ul>
 
-  <form action="/auth/signup" method="POST">
+    <form action="/auth/signup" method="POST">
 
-    <label> Username<br>
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
-<br>
-    <label> Email<br>
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-<br>
-    <label> Password<br>
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-<br>
-    <button type="submit" class="btn btn-light">Sign Up</button>
+      <label> Username<br>
+        <input type="text" name="username" placeholder="Your username" />
+      </label>
+      <br>
+      <label> Email<br>
+        <input type="email" name="email" placeholder="Your email" />
+      </label>
+      <br>
+      <label> Password<br>
+        <input type="password" name="password" placeholder="Your password" />
+      </label>
+      <br>
+      <button type="submit" class="btn btn-light button-overlay">Sign Up</button>
+      <br>
 
+      <p>Already have an account? Login
+        <a href="/auth/signup">here</a>
+      </p>
 
-    {{#if errorMessage}}
+      {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>
-
-
-
-
-
+      {{/if}}
+    </form>
+  </div>

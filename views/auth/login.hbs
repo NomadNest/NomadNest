@@ -1,30 +1,32 @@
-
 <div class="nest-style">
-<div id="login-form">
+  <div id="login-form">
 
-<h4 class="nest-list-headline">Login</h4>
-<h5>Welcome back!👋</h5>
+    <h4 class="nest-list-headline">Welcome back!👋</h4>
+    
+    <p>No member yet? Signup
+      <a href="/auth/signup">here</a>
+    </p>
 
-  <form action="/auth/login" method="POST">
+    <form action="/auth/login" method="POST">
 
-    <label> Username<br>
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
-<br>
-    <label> Email<br>
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-<br>
-    <label> Password<br>
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-<br>
-    <button type="submit" class="btn btn-light">Login</button>
+      <label> Username<br>
+        <input type="text" name="username" placeholder="Your username" />
+      </label>
+      <br>
+      <label> Email<br>
+        <input type="email" name="email" placeholder="Your email" />
+      </label>
+      <br>
+      <label> Password<br>
+        <input type="password" name="password" placeholder="Your password" />
+      </label>
+      <br>
+      <button type="submit" class="btn button-overlay">Login</button>
+      <br>
 
-
-    {{#if errorMessage}}
+      {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>
+      {{/if}}
+    </form>
+  </div>
 </div>
