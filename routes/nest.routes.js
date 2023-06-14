@@ -6,7 +6,7 @@ const Nest = require('../models/Nest.model');
 const fileUploader = require('../config/cloudinary.config');
 
 const isLoggedIn = require('../middleware/isLoggedIn');
-// const isLoggedOut = require('../middleware/isLoggedOut');
+//const isLoggedOut = require('../middleware/isLoggedOut');
 
 
 

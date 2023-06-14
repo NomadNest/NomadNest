@@ -124,3 +124,17 @@ video::-webkit-media-controls {
   height: 500px;
   width: 100%;
  }
+
+ .socials{
+
+  width: 13%;
+ }
+ footer{
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+ }
+ .payment{
+margin-left: 5rem;
+margin-right: 5rem;
+
+ }
