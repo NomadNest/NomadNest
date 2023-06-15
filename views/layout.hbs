@@ -12,6 +12,7 @@
 
 <body>
 
+
   <nav class="navbar navbar-expand-lg navbar-light ">
 
     <div class="container-fluid">
@@ -20,111 +21,144 @@
         <img src="/images/Logo.png" alt="Logo">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <ul class="navbar-nav">
 
-          <a class="nav-link">
+          <li class="nav-link">
+
             {{#if currentUser}}
             <p class="welcome-user">Hi {{currentUser.username}} ✌️</p>
             {{/if}}
-          </a>
+          </li>
 
-          <a class="nav-link" href="/nests/">Find a Nest</a>
-          <a class="nav-link" href="/nests/create">Offer a Nest</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/nests/">Find a Nest</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/nests/create">Offer a Nest</a>
+          </li>
+          <li class="nav-item">
 
-          {{#if currentUser}}
-          <form id="logout-form" method="GET" action="/auth/logout">
-            <button class="nav-link btn btn-light">Logout</button>
-          </form>
+            {{#if currentUser}}
+            <form id="logout-form" method="GET" action="/auth/logout">
+              <button class="nav-link btn btn-light">Logout</button>
+            </form>
+          </li>
+
           {{else}}
-          <a class="nav-link" href="/auth/signup">Signup</a>
-          <a class="nav-link" href="/auth/login">Login</a>
-          {{/if}}
+          <li class="nav-item">
 
-        </div>
+            <a class="nav-link" href="/auth/signup">Signup</a>
+          </li>
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="/auth/login">Login</a>
+            {{/if}}
+          </li>
+
+        </ul>
       </div>
   </nav>
+
 
 
   {{{body}}}
 
 
+  <footer>
+    <div class="container text-left">
+      <div class="row ">
+        <div class="col">
+          <br>
+          <p>
+            Get in touch <br>
+            Call us at +833 3772 955. <br>
+            NomadNest <br>
+            Thisone Street 999, z 21 <br>
+            0087 Springfield <br>
+          </p>
 
-{{!-- CONNECT GOOGLE MAPS --}}
-  {{!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBklj486JNzgr5aXy3N-ssjvyjzYtN4qFA"></script>
-  <script type="text/javascript" src="/js/main.js"></script> --}}
+        </div>
+        <div class="col">
+          <br>
+          <p>
+            About NomadNest <br>
+            Meet the team <br>
+            Rental insurance <br>
+            Renting terms <br>
+            Privacy Policy <br>
+          </p>
 
+        </div>
 
-<footer>
-  <hr>
-<div class="container text-left">
-  <div class="row ">
-    <div class="col">
-      <p>
-Get in touch <br>
-Call us at +833 3772 955. <br>
-NomadNest <br>
-Thisone Street 999, z 21 <br>
-0087 Springfield <br>
-      </p>
+        <div class="col text-center ">
+          <br>
+          <p> Follow us and share:</p> <br>
+          <div class="payment d-flex justify-content-between">
 
-    </div>
-    <div class="col">
-      <p>
-About NomadNest <br>
-Meet the team <br>
-Rental insurance <br>
-Renting terms <br>
-Privacy Policy <br>
-      </p>
-
-    </div>
-    <div class="col text-center ">
-      <p> Follow us and share:</p> <br>
-      <div class="payment d-flex justify-content-between">
-
-      <img class="socials" src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686752459/9165582_tik_tok_icon_hmjmzp.png" alt="tik tok">
-      <img class="socials" src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686752459/5279112_camera_instagram_social_media_instagram_logo_icon_m8d4te.png" alt="instagram">
-      <img class="socials" src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686752458/5340246_chat_communication_message_wa_whatsapp_icon_axsb5g.png" alt="whatsApp">
-   </div>
-  </div>
-</div>
-
-<hr>
-<div class="col text-center "> 
-<div class="payment d-flex justify-content-between">
- 
-      <p>
-You can pay with:
-      </p>
-      <br>
-   
-  <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/728973_credit_card_mastercard_payment_card_pay_icon_r1rsip.png" alt="mastercard">
-  <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/206684_visa_method_card_payment_icon_vrocfh.png" alt="visa">
-  <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/1156727_finance_payment_paypal_icon_s5cm2x.png" alt="paypal">
-    
-    
-  <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/4518982_apple_pay_icon_fl3wkq.png" alt="apple-pay">
-      <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757376/7123945_logo_pay_google_gpay_icon_bymvhh.png" alt="google-pay">
-      <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/206681_payment_bitcoin_method_icon_m2xc5c.png" alt="bitcoin">
-  
-  
-</div>
-</div>
-
-</footer>
+            <img class="socials"
+              src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686752459/9165582_tik_tok_icon_hmjmzp.png"
+              alt="tik tok">
+            <img class="socials"
+              src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686752459/5279112_camera_instagram_social_media_instagram_logo_icon_m8d4te.png"
+              alt="instagram">
+            <img class="socials"
+              src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686752458/5340246_chat_communication_message_wa_whatsapp_icon_axsb5g.png"
+              alt="whatsApp">
+          </div>
+        </div>
+      </div>
 
 
+      <hr>
+      <div class="col text-center ">
+        <div class="payment d-flex justify-content-between">
+
+          <p>
+            You can pay with:
+          </p>
+          <br>
+
+          <img
+            src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/728973_credit_card_mastercard_payment_card_pay_icon_r1rsip.png"
+            alt="mastercard">
+          <img
+            src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/206684_visa_method_card_payment_icon_vrocfh.png"
+            alt="visa">
+          <img
+            src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/1156727_finance_payment_paypal_icon_s5cm2x.png"
+            alt="paypal">
 
 
+          <img src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/4518982_apple_pay_icon_fl3wkq.png"
+            alt="apple-pay">
+          <img
+            src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757376/7123945_logo_pay_google_gpay_icon_bymvhh.png"
+            alt="google-pay">
+          <img
+            src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686757402/206681_payment_bitcoin_method_icon_m2xc5c.png"
+            alt="bitcoin">
 
 
+        </div>
+      </div>
+
+
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  {{!-- javascript --}}
   <script src="/js/script.js"></script>
 
 </body>
+
 </html>

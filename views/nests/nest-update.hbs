@@ -39,6 +39,83 @@
                 </label>
             </div>
 
+{{!-- switches EMILIO below--}}
+    
+    <div class="switches ">
+    
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="airportCheckbox" name="airport" value="{{nest.switches.airport}}"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Distance to airport: less than 45min</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="mobilityCheckbox" name="accessibility"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Accessible AND equipped for people with diverse
+                mobility needs</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="daylightCheckbox" name="daylight"
+              >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Daylight in main working area</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="monitorCheckbox" name="monitor"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Extra monitor available</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="privateCheckbox" name="private"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Extra: private meeting room/s</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="petCheckbox" name="pet" >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Pet friendly</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="coffeeCheckbox" name="coffee"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Coffee shops and restaurants nearby</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="bikeCheckbox" name="bike"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Bike available</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="hikeCheckbox" name="hike"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Hiking nature nearby</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="gymCheckbox" name="gym" >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Gym available</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="swimmCheckbox" name="swimm"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Swimming nearby</label>
+        </div>
+    
+    
+        <br>
+    </div>
+    
+    
+    
+    {{!-- switches EMILIO --}}
 
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label maxlength=" 200"">Description<br><textarea
@@ -65,11 +142,6 @@
         </form>
 
     </div>
-
-    <div>...don't want to offer your Nest anymore?
-        <form method="POST" action="/nests/{{nest._id}}/delete">
-            <button type="submit" class="btn btn-link">Delete Nest</button>
-        </form>
-    </div>
+    
 
     <br>

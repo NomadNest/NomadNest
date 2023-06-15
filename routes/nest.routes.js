@@ -6,6 +6,7 @@ const Nest = require('../models/Nest.model');
 const fileUploader = require('../config/cloudinary.config');
 
 const isLoggedIn = require('../middleware/isLoggedIn');
+const cloudinaryConfig = require('../config/cloudinary.config');
 //const isLoggedOut = require('../middleware/isLoggedOut');
 
 
@@ -46,17 +47,6 @@ router.get('/api/:nestId', (req, res, next) => {
         })
 });
 
-// router.get('/api', (req, res, next) => {
-//     Nest.find()
-//         .then((allNestsFromDB) => {
-//             res.status(200).json({ nests: allNestsFromDB });
-//         })
-//         .catch((e) => {
-//             console.log('google maps make me crazy', e)
-//         })
-// });
-
-// CREATE: display form
 
 router.get("/create", isLoggedIn, (req, res, next) => {
 
@@ -85,10 +75,22 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
         owner: req.session.currentUser._id,
         highlight: req.body.highlight,
         email: req.body.email,
-
         address: {
             type: 'Point',
             coordinates: [req.body.longitude, req.body.latitude]
+          },
+        switches: {
+            airport: req.body.airport,
+            accessibility: req.body.accessibility,
+            daylight: req.body.daylight,
+            monitor: req.body.monitor,
+            private: req.body.private,
+            pet: req.body.pet,
+            coffee: req.body.coffee,
+            bike: req.body.bike,
+            hike: req.body.hike,
+            gym: req.body.gym,
+            swimm:req.body.swimm
           }
     }
 
@@ -123,6 +125,21 @@ router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
 router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'), (req, res, next) => {
     const { nestId } = req.params;
     const { title, location, price, description, existingImage, highlight, email} = req.body;
+    const switches = {
+        airport: req.body.airport,
+        accessibility: req.body.accessibility,
+        daylight: req.body.daylight,
+        monitor: req.body.monitor,
+        private: req.body.private,
+        pet: req.body.pet,
+        coffee: req.body.coffee,
+        bike: req.body.bike,
+        hike: req.body.hike,
+        gym: req.body.gym,
+        swimm:req.body.swimm
+      }
+    console.log('airport', req.body.airport)
+    console.log('DESCRIPTION', req.body.description)
 
     let imageUrl;
     if (req.file) {
@@ -136,7 +153,7 @@ router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'
 
     Nest.findByIdAndUpdate(
         nestId,
-        { title, location, price, description, imageUrl, highlight, email },
+        { title, location, price, description, imageUrl, highlight, email , switches},
         { new: true }
     )
         .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))
@@ -183,36 +200,7 @@ router.get("/:nestId", (req, res, next) => {
       });
 })
 
-
-// GOOGLE
-
-// const geocoder = new google.maps.Geocoder();
-
-// document.getElementById('submit').addEventListener('click', () => {
-//   geocodeAddress(geocoder, map);
-// });
-
-// function geocodeAddress(geocoder, resultsMap) {
-//   const address = document.getElementById('address').value;
-
-//   geocoder.geocode({ address: address }, (results, status) => {
-//     if (status === 'OK') {
-//       resultsMap.setCenter(results[0].geometry.location);
-//       let marker = new google.maps.Marker({
-//         map: resultsMap,
-//         position: results[0].geometry.location
-//       });
-//       document.getElementById('latitude').value = results[0].geometry.location.lat();
-//       document.getElementById('longitude').value = results[0].geometry.location.lng();
-//     } else {
-//       console.log(`Geocode was not successful for the following reason: ${status}`);
-//     }
-//   });
-// }
-
-
-
-
+  
 
 
 

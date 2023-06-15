@@ -7,13 +7,24 @@ const nestSchema = new Schema(
     location: String,
     price: Number,
     description: String,
-    // enum: number of dorms, desks, daylight, pet friendly, timezone....
-    // rating: Number
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
     highlight: String,
+    switches: {
+      airport: String,
+      accessibility: String,
+      daylight: String,
+      monitor: String,
+      private: String,
+      pet: String,
+      coffee: String,
+      bike: String,
+      hike: String,
+      gym: String,
+      swimm:String,
+    },
     website: String,
     email: {
       type: String,

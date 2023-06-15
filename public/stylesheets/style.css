@@ -1,5 +1,6 @@
 /* LAYOUT styling */
 body {
+
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -189,8 +190,9 @@ video::-webkit-media-controls {
   width: 12%;
  }
  footer{
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  background-color: rgb(245, 234, 216);
+  /* margin-bottom: 2rem; */
+  padding-bottom: 3rem;
   padding-left: 60px;
   padding-right: 60px;
  }
