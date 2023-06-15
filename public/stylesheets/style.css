@@ -148,8 +148,9 @@ video::-webkit-media-controls {
   width: 12%;
  }
  footer{
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  background-color: rgb(236, 231, 223);
+  /* margin-bottom: 2rem; */
+  padding-bottom: 3rem;
   padding-left: 60px;
   padding-right: 60px;
  }
