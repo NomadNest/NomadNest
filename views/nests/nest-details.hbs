@@ -40,7 +40,34 @@
       </div>
   </div>
 </div>
-  
+
+     {{!-- SWITCHES --}}
+
+{{#if nest.switches}}
+  <h4>Extras</h4> 
+{{#if nest.switches.airport}}<p>Distance to airport: less than 45min:  ✅ </p>{{/if}} 
+{{#if nest.switches.accessibility}}<p>Accessible AND equipped for people with diverse mobility needs: ✅</p>{{/if}} 
+{{#if nest.switches.daylight}}<p>Daylight in main working area: ✅</p>{{/if}} 
+{{#if nest.switches.monitor}}<p>Extra monitor available: ✅</p>{{/if}} 
+{{#if nest.switches.private}}<p>Extra: private meeting room/s: ✅</p>{{/if}} 
+{{#if nest.switches.pet}}<p>Pet friendly: ✅</p>{{/if}} 
+{{#if nest.switches.bike}}<p>Bike available: ✅</p>{{/if}} 
+{{#if nest.switches.hike}}<p>Hiking nature nearby: ✅</p>{{/if}} 
+{{#if nest.switches.coffee}}<p>Coffee shops and restaurants nearby: ✅</p>{{/if}} 
+{{#if nest.switches.gym}}<p>Gym available: ✅</p>{{/if}} 
+{{#if nest.switches.swimm}}<p>Swimming nearby: ✅</p>{{/if}} 
+
+{{else}}
+  <p></p>
+{{/if}}
+
+
+
+
+    {{!-- SWITCHES --}}
+
+
+
     <p>Description <br>{{nest.description}}</p>
 
     <p>€{{nest.price}}/night</p>

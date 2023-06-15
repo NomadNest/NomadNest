@@ -28,14 +28,15 @@
         </label>
         <br>
         <br>
-        <label> Contact<br>
+        {{!-- <label> Contact<br>
             <input type="text" name="contact" required="true" value="{{nest.contact}}" />
-        </label>
-        <br>
-        <br>
+        </label> --}}
+        {{!-- <br>
+        <br> --}}
       <label> Email<br>
         <input type="email" name="email" required="true" value="{{nest.email}}"/>
       </label>
+        <br>
         <br>
 
         {{!-- <label>Address <br>
@@ -47,12 +48,98 @@
         <br> --}}
 
 
+
+    {{!-- switches EMILIO below--}}
+    
+    <div class="switches ">
+    
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="airportCheckbox" name="airport" value="{{nest.switches.airport}}"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Distance to airport: less than 45min</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="mobilityCheckbox" name="accessibility"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Accessible AND equipped for people with diverse
+                mobility needs</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="daylightCheckbox" name="daylight"
+              >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Daylight in main working area</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="monitorCheckbox" name="monitor"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Extra monitor available</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="privateCheckbox" name="private"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Extra: private meeting room/s</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="petCheckbox" name="pet" >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Pet friendly</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="coffeeCheckbox" name="coffee"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Coffee shops and restaurants nearby</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="bikeCheckbox" name="bike"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Bike available</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="hikeCheckbox" name="hike"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Hiking nature nearby</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="gymCheckbox" name="gym" >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Gym available</label>
+        </div>
+    
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="swimmCheckbox" name="swimm"
+                >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Swimming nearby</label>
+        </div>
+    
+    
+        <br>
+    </div>
+    
+    
+    
+    {{!-- switches EMILIO --}}
+
+
+
+       
+
+
+
+
         <label> Description<br>
             <textarea name="description" cols="30" rows="4" required="true">{{nest.description}} </textarea>
         </label>
         <br>
                 <label> Highlight<br>
-            <textarea name="description" cols="30" rows="4" required="true">{{nest.highlight}} </textarea>
+            <textarea name="highlight" cols="30" rows="4" required="true">{{nest.highlight}} </textarea>
         </label>
         <br>
         <label>Image<br>

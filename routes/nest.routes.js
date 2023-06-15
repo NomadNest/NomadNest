@@ -6,6 +6,7 @@ const Nest = require('../models/Nest.model');
 const fileUploader = require('../config/cloudinary.config');
 
 const isLoggedIn = require('../middleware/isLoggedIn');
+const cloudinaryConfig = require('../config/cloudinary.config');
 //const isLoggedOut = require('../middleware/isLoggedOut');
 
 
@@ -60,6 +61,19 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
         owner: req.session.currentUser._id,
         highlight: req.body.highlight,
         email: req.body.email,
+        switches: {
+            airport: req.body.airport,
+            accessibility: req.body.accessibility,
+            daylight: req.body.daylight,
+            monitor: req.body.monitor,
+            private: req.body.private,
+            pet: req.body.pet,
+            coffee: req.body.coffee,
+            bike: req.body.bike,
+            hike: req.body.hike,
+            gym: req.body.gym,
+            swimm:req.body.swimm
+          }
         // longitude: req.body.longitude,
         // latitude: req.body.latitude,
         // address: {
@@ -99,6 +113,21 @@ router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
 router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'), (req, res, next) => {
     const { nestId } = req.params;
     const { title, location, price, description, existingImage, highlight, email} = req.body;
+    const switches = {
+        airport: req.body.airport,
+        accessibility: req.body.accessibility,
+        daylight: req.body.daylight,
+        monitor: req.body.monitor,
+        private: req.body.private,
+        pet: req.body.pet,
+        coffee: req.body.coffee,
+        bike: req.body.bike,
+        hike: req.body.hike,
+        gym: req.body.gym,
+        swimm:req.body.swimm
+      }
+    console.log('airport', req.body.airport)
+    console.log('DESCRIPTION', req.body.description)
 
     let imageUrl;
     if (req.file) {
@@ -112,7 +141,7 @@ router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'
 
     Nest.findByIdAndUpdate(
         nestId,
-        { title, location, price, description, imageUrl, highlight, email },
+        { title, location, price, description, imageUrl, highlight, email , switches},
         { new: true }
     )
         .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))
@@ -189,6 +218,13 @@ router.get("/:nestId", (req, res, next) => {
 
 
 
+
+
+
+
+
+
+  
 
 
 
