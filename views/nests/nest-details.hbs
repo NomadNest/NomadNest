@@ -1,10 +1,10 @@
 <div class="nest-style">
-    <h4 class="nest-list-headline">{{nest.title}}</h4>
+    <h4 class="nest-detail-headline">{{nest.title}}</h4>
 
     <div class=class="container text-center">
         <div class="row align-items-start">
             <div class="col-10">
-                <p>{{nest.location}}</p>
+                <p class="nest-location-styling">{{nest.location}}</p>
             </div>
 
             <div class="col-1">
@@ -19,45 +19,70 @@
                 </form>
                 {{/if}}
             </div>
-            
+
         </div>
     </div>
 
     <img src="{{nest.imageUrl}}" class="card-img-top" alt="{{nest.title}}">
 
-<div class="container quote-styling">
-  <div class="row">
-    <div class="col-2 align-self-end text-end">
-      <img class="quote-icon" src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686810283/icon-quote_vsvcjb.png"
-        alt="Logo">
+    <div class="container quote-styling">
+        <div class="row">
+            <div class="col-2 align-self-end text-end">
+                <img class="quote-icon"
+                    src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686810283/icon-quote_vsvcjb.png"
+                    alt="Logo">
+            </div>
+            <div class="col-8 quote-text">
+                <h5>{{nest.highlight}}</h5>
+            </div>
+            <div class="row">
+                <div class="col-8 text-end quote-styling-author">
+                    <p>- Highlight from the host</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-8 quote-text">
-      <h5>{{nest.highlight}}</h5>
+
+    {{!-- test of sticky box --}}
+    <div class="col-3 sticky-top align-self-end text-end offset-md-9">
+        <h5>Book now!</h5>
+        <img class="book-icon"
+            src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686810283/icon-contact_oclbad.png" alt="Logo">
+        {{nest.email}}
     </div>
-    <div class="row">
-      <div class="col-8 text-end quote-styling-author">
-        <p>- Highlight from the host</p>
-      </div>
-  </div>
-</div>
-  
-    <p>Description <br>{{nest.description}}</p>
 
-    <p>€{{nest.price}}/night</p>
-    <hr>
+    <div class="col-8 section-styling-details styling-description">
+        <h5>Description</h5>
+        {{nest.description}}
+        <br>
+        <span>Minimum €{{nest.price}}/night</span>
+    </div>
+    <hr class="col-8">
+    <div class="col-8 section-styling-details">
+        <h5>Selected features</h5>
+        {{!-- {{nest.description}} --}}
+    </div>
+    <hr class="col-8">
 
-    <p>Contact</p>
-    <p>{{nest.email}}</p>
+ 
+    <div class="col-6 section-styling-details">
+        <h5>Location</h5>
+    </div>
+         <div id="map"></div>
 
 
-    <hr>
-
-    {{!-- <p>Location</p>
-    <div id="map"></div>
-  --}}
 
     <button class="btn btn-link button-list">
         <a href="/nests">Back to all nests</a>
     </button>
 
 </div>
+
+{{!-- CONNECT GOOGLE MAPS --}}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBklj486JNzgr5aXy3N-ssjvyjzYtN4qFA"></script>
+
+<script type="text/javascript">
+    const nestId = "{{nest._id}}";
+</script>
+<script type="text/javascript" src="/js/main.js"></script>

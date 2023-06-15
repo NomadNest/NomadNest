@@ -23,12 +23,13 @@ const nestSchema = new Schema(
       trim: true,
       lowercase: true,
     },
-    // address: { type: { type: String }, coordinates: [Number] },
+    address: { type: { type: String }, coordinates: [Number] },
   },
   {
     timestamps: true
   }
 );
-// nestSchema.index({ address: '2dsphere' });
+
+nestSchema.index({ address: '2dsphere' });
 
 module.exports = model('Nest', nestSchema);

@@ -30,6 +30,31 @@ router.get("/", (req, res, next) => {
         })
 });
 
+// API for Google Maps
+
+router.get('/api/:nestId', (req, res, next) => {
+
+    const id = req.params.nestId
+    console.log("finally!!!!", req.params.nestId)
+
+    Nest.findById(id)
+        .then((allNestsFromDB) => {
+            res.status(200).json({ nests: allNestsFromDB });
+        })
+        .catch((e) => {
+            console.log('google maps make me crazy', e)
+        })
+});
+
+// router.get('/api', (req, res, next) => {
+//     Nest.find()
+//         .then((allNestsFromDB) => {
+//             res.status(200).json({ nests: allNestsFromDB });
+//         })
+//         .catch((e) => {
+//             console.log('google maps make me crazy', e)
+//         })
+// });
 
 // CREATE: display form
 
@@ -60,12 +85,11 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
         owner: req.session.currentUser._id,
         highlight: req.body.highlight,
         email: req.body.email,
-        // longitude: req.body.longitude,
-        // latitude: req.body.latitude,
-        // address: {
-        //     type: 'Point',
-        //     coordinates: [req.body.longitude, req.body.latitude]
-        //   }
+
+        address: {
+            type: 'Point',
+            coordinates: [req.body.longitude, req.body.latitude]
+          }
     }
 
     Nest.create(newNest)

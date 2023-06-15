@@ -74,6 +74,12 @@ video::-webkit-media-controls {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.box-in-quote {
+  background-color: aqua;
+  width: 20vw;
+  height: 30vh;
+}
+
 /* NEST styling */
 
 .nest-style {
@@ -87,8 +93,43 @@ video::-webkit-media-controls {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.nest-detail-headline {
+  padding-bottom: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nest-location-styling {
+  color: grey;
+  margin-bottom: 0;
+}
+
 .nest-form-styling {
   padding-right: 60%;
+}
+
+.section-styling-details {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.styling-description {
+  margin-right: 0;
+}
+
+.sticky-top {
+  background-color: rgb(252, 156, 4);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.book-icon {
+  max-height: 3vh;
+  max-width: auto;
 }
 
 .card {
@@ -139,7 +180,7 @@ video::-webkit-media-controls {
 }
 
 #map {
-  height: 500px;
+  height: 400px;
   width: 100%;
  }
 
