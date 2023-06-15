@@ -55,6 +55,24 @@ video::-webkit-media-controls {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.quote-styling {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.quote-icon {
+  max-height: auto;
+  max-width: 5vw;
+}
+
+.quote-text {
+  font-style: italic;
+}
+
+.quote-styling-author {
+  color: grey;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* NEST styling */
 

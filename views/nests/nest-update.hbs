@@ -1,5 +1,6 @@
 <div class="nest-style">
-    <h4 class="nest-list-headline">Edit your Nest <br>"{{nest.title}}"</h4>
+    <h4 class="nest-list-headline">Edit your Nest 📝</h4>
+    <h5>"{{nest.title}}"</h5>
 
     <form method="POST" action="/nests/{{nest._id}}/edit" enctype="multipart/form-data">
 
@@ -8,9 +9,9 @@
         </label>
         <br>
 
-        {{!-- <label> Author
-            <select name="author">
-                {{#each authors}}
+        {{!-- <label> Owner
+            <select name="owner">
+                {{#each owner}}
                 <option value={{this._id}}>
                     {{this.name}}
                 </option>
@@ -24,6 +25,16 @@
         <br>
         <label> Price<br>
             <input type="number" name="price" required="true" value="{{nest.price}}" />
+        </label>
+        <br>
+        <br>
+        <label> Contact<br>
+            <input type="text" name="contact" required="true" value="{{nest.contact}}" />
+        </label>
+        <br>
+        <br>
+        <label> Website<br>
+            <input type="text" name="website" required="true" value="{{nest.website}}" />
         </label>
         <br>
 
@@ -40,10 +51,20 @@
             <textarea name="description" cols="30" rows="4" required="true">{{nest.description}} </textarea>
         </label>
         <br>
+                <label> Highlight<br>
+            <textarea name="description" cols="30" rows="4" required="true">{{nest.highlight}} </textarea>
+        </label>
+        <br>
         <label>Image<br>
             <input type="file" name="movie-cover-image" class="form-control-file" />
             <input type="text" name="existingImage" value="{{nest.imageUrl}}">
         </label>
         <br>
-        <button class="btn btn-light">Save</button>
+        <button class="btn button-overlay">Save changes</button>
     </form>
+
+    <div>...don't want to offer your Nest anymore?
+        <form method="POST" action="/nests/{{nest._id}}/delete">
+            <button type="submit" class="btn btn-light">Delete Nest</button>
+        </form>
+    </div>

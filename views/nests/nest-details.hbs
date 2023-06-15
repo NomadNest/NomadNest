@@ -25,21 +25,37 @@
 
     <img src="{{nest.imageUrl}}" class="card-img-top" alt="{{nest.title}}">
 
+<div class="container quote-styling">
+  <div class="row">
+    <div class="col-2 align-self-end text-end">
+      <img class="quote-icon" src="https://res.cloudinary.com/dzkmmidp3/image/upload/v1686810283/icon-quote_vsvcjb.png"
+        alt="Logo">
+    </div>
+    <div class="col-8 quote-text">
+      <h5>{{nest.highlight}}</h5>
+    </div>
+    {{!-- <div class="row">
+      <div class="col-8 text-end quote-styling-author">
+        <p>- Oprah Winfrey</p>
+      </div> --}}
+  </div>
+</div>
   
     <p>Description <br>{{nest.description}}</p>
 
     <p>€{{nest.price}}/night</p>
     <hr>
 
-
     <p>Contact</p>
-    <p>owner is still missing</p>
+    <p>{{nest.contact}}</p>
+    <p>{{nest.website}}</p>
 
 
     <hr>
 
-    <p>Location</p>
+    {{!-- <p>Location</p>
     <div id="map"></div>
+  --}}
 
     <button class="btn btn-link button-list">
         <a href="/nests">Back to all nests</a>
