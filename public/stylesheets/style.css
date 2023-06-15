@@ -57,7 +57,7 @@ video::-webkit-media-controls {
 
 .quote-styling {
   margin-top: 5vh;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
 }
 
 .quote-icon {
@@ -110,6 +110,11 @@ video::-webkit-media-controls {
 .section-styling-details {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.section-styling-details-features {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .styling-description {
