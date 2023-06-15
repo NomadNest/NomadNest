@@ -1,45 +1,49 @@
 <div class="nest-style">
-  <div id="login-form">
 
-    <h4 class="nest-list-headline">Welcome back!👋</h4>
-    
-    <p>Not a member yet? Signup
-      <a href="/auth/signup">here</a>
-    </p>
+  <div class="nest-form-styling">
+    <div id="login-form">
 
-    <form action="/auth/login" method="POST">
+      <h4 class="nest-list-headline">Welcome back!👋</h4>
 
-      <label> Username<br>
-        <input type="text" name="username" placeholder="Your username" />
-      </label>
-      <br>
-      <label> Email<br>
-        <input type="email" name="email" placeholder="Your email" />
-      </label>
-      <br>
-      <label> Password<br>
-        <input type="password" name="password" placeholder="Your password" />
-      </label>
-      <br>
-      <br>
-      <br>
-      <button type="submit" class="btn button-overlay">Login</button>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-       <br>
-      <br>
+      <p>Not a member yet? Signup
+        <a href="/auth/signup">here</a>
+      </p>
       <br>
 
-      {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-      {{/if}}
-    </form>
+      <form action="/auth/login" method="POST">
+
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" name="username" placeholder="Your username" required="true" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" placeholder="Your email" required="true" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" placeholder="Your password" required="true" class="form-control">
+        </div>
+
+        {{#if errorMessage}}
+        <br>
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+
+        <br>
+        <button type="submit" class="btn button-overlay">Login</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+      </form>
+    </div>
   </div>
 </div>

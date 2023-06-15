@@ -1,47 +1,55 @@
 <div class="nest-style">
-  <div id="form">
 
-    <h4 class="nest-list-headline">Welcome to NomadNest!👋</h4>
-    <h6>Create a profile to</h6>
-    <ul>
-      <li>Keep favourites forever</li>
-      <li>Become a host and offer Nests</li>
-      <li>Be part of our community</li>
-    </ul>
-<br>
+  <div class="nest-form-styling">
 
-    <form action="/auth/signup" method="POST">
+    <div id="form">
 
-      <label> Username<br>
-        <input type="text" name="username" placeholder="Your username" />
-      </label>
-      <br>
-      <label> Email<br>
-        <input type="email" name="email" placeholder="Your email" />
-      </label>
-      <br>
-      <label> Password<br>
-        <input type="password" name="password" placeholder="Your password" />
-      </label>
-      <br>
-       <br>
-      <br>
-      <br>
-      <button type="submit" class="btn btn-light button-overlay">Sign Up</button>
-      <br>
-<br>
-      <p>Already have an account? Login
-        <a href="/auth/login">here</a>
-      </p>
- <br>
-      <br>
-      <br>
-       <br>
-      <br>
+      <h4 class="nest-list-headline">Welcome to NomadNest!👋</h4>
+      <h6>Create a profile to</h6>
+      <ul>
+        <li>Become a host and offer Nests</li>
+        <li>Be part of our NomadNest family</li>
+      </ul>
       <br>
 
-      {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-      {{/if}}
-    </form>
+      <form action="/auth/signup" method="POST">
+
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" name="username" placeholder="Your username" required="true" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" placeholder="Your email" required="true" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" placeholder="Your password" required="true" class="form-control">
+        </div>
+        {{#if errorMessage}}
+        <br>
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+        <br>
+
+        <button type="submit" class="btn btn-light button-overlay">Sign Up</button>
+
+        <br>
+
+        <br>
+        <p>Already have an account? Login
+          <a href="/auth/login">here</a>
+        </p>
+
+        <br>
+        <br>
+        <br>
+
+
+      </form>
+
+    </div>
   </div>
+</div>
