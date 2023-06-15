@@ -13,11 +13,14 @@ const nestSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
-    address: { type: { type: String }, coordinates: [Number] },
+    highlight: String,
+    website: String,
+    // address: { type: { type: String }, coordinates: [Number] },
   },
   {
     timestamps: true
   }
 );
+// nestSchema.index({ address: '2dsphere' });
 
 module.exports = model('Nest', nestSchema);

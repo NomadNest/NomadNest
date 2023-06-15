@@ -15,6 +15,8 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 router.get("/", (req, res, next) => {
 
     Nest.find()
+    .populate("owner")
+
         .then(nestsFromDB => {
 
             const data = {
@@ -49,9 +51,13 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
         description: req.body.description,
         imageUrl: req.file.path,
         owner: req.session.currentUser._id,
+        highlight: req.body.highlight,
+        website: req.body.website,
+        // longitude: req.body.longitude,
+        // latitude: req.body.latitude,
         // address: {
         //     type: 'Point',
-        //     coordinates: [longitude, latitude]
+        //     coordinates: [req.body.longitude, req.body.latitude]
         //   }
     }
 
@@ -85,7 +91,7 @@ router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
 // UPDATE: Process form
 router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'), (req, res, next) => {
     const { nestId } = req.params;
-    const { title, location, price, description, existingImage } = req.body;
+    const { title, location, price, description, existingImage, highlight, website} = req.body;
 
     let imageUrl;
     if (req.file) {
@@ -99,7 +105,7 @@ router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'
 
     Nest.findByIdAndUpdate(
         nestId,
-        { title, location, price, description, imageUrl },
+        { title, location, price, description, imageUrl, highlight, website },
         { new: true }
     )
         .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))

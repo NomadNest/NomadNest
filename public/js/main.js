@@ -1,3 +1,4 @@
+
 // window.addEventListener('load', () => {
 //     const ironhackBCN = {
 //       lat: 41.38623,
@@ -14,11 +15,11 @@
 
 // // public/javascripts/main.js
 
-// function getRestaurants() {
+// function getNests() {
 //   axios
-//     .get('/restaurants/api')
+//     .get('nests/api')
 //     .then(response => {
-//       placeRestaurants(response.data.restaurants);
+//       placeNests(response.data.nests);
 //     })
 //     .catch(error => {
 //       console.log(error);
@@ -30,21 +31,21 @@
 
 // // public/javascripts/main.js
 
-// function placeRestaurants(restaurants) {
-//   for (let restaurant of restaurants) {
+// function placeNests(nests) {
+//   for (let nest of nests) {
 //     const center = {
-//       lat: restaurant.location.coordinates[1],
-//       lng: restaurant.location.coordinates[0]
+//       lat: nest.address.coordinates[1],
+//       lng: nest.address.coordinates[0]
 //     };
 //     const pin = new google.maps.Marker({
 //       position: center,
 //       map: map,
-//       title: restaurant.name
+//       title: nest.name
 //     });
 //     markers.push(pin);
 //   }
 // }
 
-// getRestaurants();
+// getNests();
 
 
