@@ -1,39 +1,48 @@
-
 <div class="nest-style">
-  <h4 class="nest-list-headline">{{nest.title}}</h4>
+    <h4 class="nest-list-headline">{{nest.title}}</h4>
 
-<p>{{nest.location}}</p>
+    <div class=class="container text-center">
+        <div class="row align-items-start">
+            <div class="col-10">
+                <p>{{nest.location}}</p>
+            </div>
 
-<img src="{{nest.imageUrl}}" class="card-img-top" alt="{{nest.title}}">
+            <div class="col-1">
+                {{#if isOwner}}
+                <button type="button" class="btn btn-light">
+                    <a href="/nests/{{nest._id}}/edit">edit</a>
+                </button>
+            </div>
+            <div class="col-1">
+                <form method="POST" action="/nests/{{nest._id}}/delete">
+                    <button type="submit" class="btn btn-light">delete</button>
+                </form>
+                {{/if}}
+            </div>
+            
+        </div>
+    </div>
 
-{{#if isOwner}}
-<button type="button" class="btn btn-light">
-    <a href="/nests/{{nest._id}}/edit">edit</a>
-</button>
+    <img src="{{nest.imageUrl}}" class="card-img-top" alt="{{nest.title}}">
 
-<form method="POST" action="/nests/{{nest._id}}/delete">
-    <button type="button" class="btn btn-light">delete</button>
-</form>
+  
+    <p>Description <br>{{nest.description}}</p>
 
-
-{{/if}}
-
-<p>€{{nest.price}}/night</p>
-<p>Description <br>{{nest.description}}</p>
+    <p>€{{nest.price}}/night</p>
+    <hr>
 
 
-<hr>
-<p>Location</p>
-    <h3>My First Map</h3>
+    <p>Contact</p>
+    <p>owner is still missing</p>
+
+
+    <hr>
+
+    <p>Location</p>
     <div id="map"></div>
 
-
-
-
-
-
-<button class="btn btn-link button-list">
-    <a href="/nests">Go back to all nests</a>
-</button>
+    <button class="btn btn-link button-list">
+        <a href="/nests">Back to all nests</a>
+    </button>
 
 </div>
