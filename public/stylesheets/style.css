@@ -1,6 +1,5 @@
 /* LAYOUT styling */
 body {
-
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -9,7 +8,7 @@ a {
 }
 
 .welcome-user {
-  color: rgba(229,16,101,255);
+  color: rgba(229, 16, 101, 255);
 }
 
 nav {
@@ -183,21 +182,22 @@ video::-webkit-media-controls {
 #map {
   height: 400px;
   width: 100%;
- }
+}
 
- .socials{
-
+.socials {
   width: 12%;
- }
- footer{
+}
+
+footer {
   background-color: rgb(245, 234, 216);
   /* margin-bottom: 2rem; */
   padding-bottom: 3rem;
   padding-left: 60px;
   padding-right: 60px;
- }
- .payment{
-margin-left: 10%;
-margin-right: 10%;
+}
 
- }
+.payment {
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
