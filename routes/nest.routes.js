@@ -59,7 +59,7 @@ router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (re
         imageUrl: req.file?.path,
         owner: req.session.currentUser._id,
         highlight: req.body.highlight,
-        website: req.body.website,
+        email: req.body.email,
         // longitude: req.body.longitude,
         // latitude: req.body.latitude,
         // address: {
@@ -98,7 +98,7 @@ router.get("/:nestId/edit", isLoggedIn, (req, res, next) => {
 // UPDATE: Process form
 router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'), (req, res, next) => {
     const { nestId } = req.params;
-    const { title, location, price, description, existingImage, highlight, website} = req.body;
+    const { title, location, price, description, existingImage, highlight, email} = req.body;
 
     let imageUrl;
     if (req.file) {
@@ -112,7 +112,7 @@ router.post("/:nestId/edit", isLoggedIn, fileUploader.single('movie-cover-image'
 
     Nest.findByIdAndUpdate(
         nestId,
-        { title, location, price, description, imageUrl, highlight, website },
+        { title, location, price, description, imageUrl, highlight, email },
         { new: true }
     )
         .then((updatedNest) => res.redirect(`/nests/${updatedNest._id}`))

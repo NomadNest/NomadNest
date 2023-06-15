@@ -15,6 +15,14 @@ const nestSchema = new Schema(
     },
     highlight: String,
     website: String,
+    email: {
+      type: String,
+      required: [true, "email required"],
+      match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
+      unique: true,
+      trim: true,
+      lowercase: true,
+    },
     // address: { type: { type: String }, coordinates: [Number] },
   },
   {
