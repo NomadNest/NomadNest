@@ -43,13 +43,20 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 // CREATE: process form
 
 router.post("/create", fileUploader.single('movie-cover-image'), isLoggedIn, (req, res, next) => {
+    // Does a similar thing to the ?. => Optional Chaining
+    // let imageUrl
+    // if (req.file) {
+    //     imageUrl = req.file.path
+    // } else {
+    //     imageUrl = undefined
+    // }
 
     const newNest = {
         title: req.body.title,
         location: req.body.location,
         price: req.body.price,
         description: req.body.description,
-        imageUrl: req.file.path,
+        imageUrl: req.file?.path,
         owner: req.session.currentUser._id,
         highlight: req.body.highlight,
         website: req.body.website,
