@@ -24,9 +24,8 @@ npm install
 3. Create an account at [www.cloudinary.com](https://www.cloudinary.com) and obtain the required information for the environment variables mentioned above.
 
 4. To run the application, execute the following command in the terminal:
- ```
-npm run dev
- ```
+`npm run dev`
+
 
 ## Demo
 
